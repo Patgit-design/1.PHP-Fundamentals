@@ -139,5 +139,76 @@ echo '<p><input type="submit" value="envoyer"></p></form>';
  the other between 7 and 15 letters. The screen will display a title "Generate a new word", and then the two generated words,<br>
   and underneath, a bouton with the text "Generate".</p>
 
+  <h3>"Generate a new word"</h3>
+
+  <?php
+            
+            function random($nb_car, $chaine = 'abcdefghijklmnopqrstuvwxyz')
+            {
+                $nb_lettres = strlen($chaine) - 1;
+                $generation = '';
+                for($i=0; $i < $nb_car; $i++)
+                {
+                    $pos = mt_rand(0, $nb_lettres);
+                    $car = $chaine[$pos];
+                    $generation .= $car;
+                }
+                return $generation;
+            }
+            echo '<h2>Générer un nouveau mot</h2>';
+            echo "Proposition 1: " .random(rand(1, 5)). "</br>" ;
+            echo "Proposition 2: " .random(rand(7, 15));
+
+
+            echo '<form action="function.php" method="post">';
+            echo '<p><input type="submit" value="Générer" onclick="random();"></p></form>';
+
+        ?>
+
+        <h3>De-capitalize the string : "STOP YELLING I CAN'T HEAR MYSELF THINKING!!"</h3>
+
+
+
+<?php
+//strtolower() - converts a string to lowercase.
+
+$decap = "STOP YELLING I CAN'T HEAR MYSELF THINKING!!"; 
+$decap = strtolower($decap);
+echo $decap;
+?>
+
+<h3>In your new job, you have to maintain the code of a former developer. Make it DRY by creating a custom function calculate_cone_volume :</h3>
+
+<?php
+// Volume of a cone which ray is 5 and height is 2 
+$volume = 5 * 5 * 3.14 * 2 * (1/3);  
+echo 'The volume of a cone which ray is 5 and height is 2 = ' . $volume . ' cm<sup>3</sup><br />';  
+// Volume of a cone which ray is 3 and height is 4  
+$volume = 3 * 3 * 3.14 * 4 * (1/3);  
+echo 'The volume of a cone which ray is 3 and height is 4 = ' . $volume . ' cm<sup>3</sup><br />';  
+?>
+
+<form action="function.php" method="post">
+<p>Hauteur du cone en cm: <input type="number" name="coneHeight"/> </p>
+<p>Rayon du cone en cm : <input type="number" name="coneRayon"/> </p>
+<p><input type="submit" value="envoyer"></p>
+</form> 
+   
+   
+    <?php
+
+    $radius = 5;
+    $height = 2;
+ function volume($radius, $height){
+    return $radius*$radius*pi()*$height*(1/3);
+}
+          
+            echo 'The volume of a cone which ray is ' .$radius. ' and height is '.$height.' = ' . volume($radius, $height) . ' cm<sup>3</sup><br />';  
+
+
+           
+        
+    ?>
+
 
 

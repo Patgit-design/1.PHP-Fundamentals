@@ -12,7 +12,7 @@
 //print_r($note);
 //print_r(isset($note));
 if (isset($_POST["note"])){
-    $note = (isset($_POST["note"]));
+    $note = ($_POST["note"]);
     print_r($note);
 switch ($note) {
 
